@@ -21,11 +21,11 @@ C- Create different lambdas to know how to extract data from the request body in
 D- Create a private lambda that handles the authentication and authorization process.
 
 E- Create a public lambda that uses an AWS S3 service in develop mode.\
-  I- Create a lambda that creates a bucket with a static name and writes some values in an object.\
-  II- Create a lambda that receives a path param to show an object list saved in a bucket.\
-  III- Create a lambda that receives some path params to show all values associated to an object.\
-  IV- Create a log service that uses AWS S3 service in develop mode to register some values (e. g., host, path,  \    httpMethod, sourceIp, userAgent and request date) in every lambda created previously.
-  V-Create a CRUD where you can store data locally. Apply all the HTTP methods and use One to One, One to Many and Many to Many use cases. Use DynamoDB as a database engine.
+   I- Create a lambda that creates a bucket with a static name and writes some values in an object.\
+   II- Create a lambda that receives a path param to show an object list saved in a bucket.\
+   III- Create a lambda that receives some path params to show all values associated to an object.\
+   IV- Create a log service that uses AWS S3 service in develop mode to register some values (e. g., host, path,  \    httpMethod, sourceIp, userAgent and request date) in every lambda created previously.
+   V-Create a CRUD where you can store data locally. Apply all the HTTP methods and use One to One, One to Many and Many to Many use cases. Use DynamoDB as a database engine.
 
 F- Configure an AWS SQS service in develop mode and send some values from existing lambdas to enqueue some messages.
 
