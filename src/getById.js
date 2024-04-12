@@ -1,10 +1,13 @@
+const pokemonList = require("src/database.json");
+
 module.exports.handler = async (event) => {
+  const id = event.pathParameters.id;
+
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: "Go Serverless v3.0! Your function executed successfully!",
-        input: event,
+        data: pokemonList.find(x => x.id == id),
       },
       null,
       2

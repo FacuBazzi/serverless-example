@@ -8,9 +8,21 @@ provider:
   runtime: nodejs18.x
 
 functions:
-  api:
-    handler: index.handler
+  getAll:
+    handler: src/getAll.handler
     events:
       - httpApi:
           path: /
           method: get
+  getById:
+    handler: src/getById.handler
+    events:
+      - httpApi:
+          path: /{id}
+          method: get
+  post:
+    handler: src/post.handler
+    events:
+      - httpApi:
+          path: /
+          method: post
