@@ -6,8 +6,18 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs18.x
+  logs:
+    httpApi: true
+  httpApi:
+    authorizers:
+      customAuthorizer:
+        type: request
+        functionName: auth
+        enableSimpleResponses: true
 
 functions:
+  auth:
+    handler: src/auth.handler
   getAll:
     handler: src/getAll.handler
     events:
@@ -26,6 +36,8 @@ functions:
       - httpApi:
           path: /
           method: post
+          authorizer:
+            name: customAuthorizer
   patch:
     handler: src/patch.handler
     events:
