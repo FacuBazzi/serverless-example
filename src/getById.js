@@ -1,7 +1,8 @@
-const pokemonList = require("src/database.json");
+const fs = require("fs")
 
 module.exports.handler = async (event) => {
   const id = event.pathParameters.id;
+  const pokemonList = JSON.parse(fs.readFileSync("src/database.json"))
 
   return {
     statusCode: 200,

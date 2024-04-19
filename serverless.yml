@@ -44,3 +44,10 @@ functions:
       - httpApi:
           path: /
           method: patch
+
+package:
+  patterns:
+    - src/database.json
+
+plugins:
+  - serverless-offline
