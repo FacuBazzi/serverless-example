@@ -10,7 +10,7 @@ provider:
     httpApi: true
   httpApi:
     authorizers:
-      customAuthorizer:
+      auth:
         type: request
         functionName: auth
         enableSimpleResponses: true
@@ -36,8 +36,7 @@ functions:
       - httpApi:
           path: /
           method: post
-          authorizer:
-            name: customAuthorizer
+          authorizer: auth
   patch:
     handler: src/patch.handler
     events:
@@ -51,3 +50,7 @@ package:
 
 plugins:
   - serverless-offline
+
+custom:
+  serverless-offline:
+    ignoreJWTSignature: true
