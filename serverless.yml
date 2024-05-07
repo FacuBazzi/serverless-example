@@ -43,6 +43,24 @@ functions:
       - httpApi:
           path: /
           method: patch
+  s3-listbuckets:
+    handler: src/s3/listBuckets.handler
+    events:
+      - httpApi:
+          path: /s3
+          method: get
+  s3-createBucket:
+    handler: src/s3/createBucket.handler
+    events:
+      - httpApi:
+          path: /s3/{bucketName}
+          method: post
+  s3-createFile:
+    handler: src/s3/createFile.handler
+    events:
+      - httpApi:
+          path: /s3/{bucketName}/{fileName}
+          method: post
 
 package:
   patterns:

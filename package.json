@@ -1,5 +1,10 @@
 {
   "devDependencies": {
     "serverless-offline": "^13.3.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1613.0",
+    "serverless-s3-sync": "^3.3.0",
+    "uuid": "^9.0.1"
   }
 }
