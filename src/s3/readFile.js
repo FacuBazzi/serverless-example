@@ -6,18 +6,17 @@ module.exports.handler = async (event) => {
 
   const params = {
     Bucket: bucketName,
-    Key: fileName,
-    Body: event.body
+    Key: fileName
   }
 
-  const result = await s3.putObject(params).promise()
+  const result = await s3.getObject(params).promise()
 
   const successResponse = {
-      statusCode: 201,
+      statusCode: 200,
       body: JSON.stringify(
       {
-          message: "File created successfully",
-          newData: JSON.stringify(result)
+          message: "File obtained successfully",
+          content: JSON.parse(result.Body.toString())
       },
       null,
       2
@@ -28,7 +27,7 @@ module.exports.handler = async (event) => {
       statusCode: 400,
       body: JSON.stringify(
       {
-          message: "There was an error creating the file",
+          message: "There was an error reading the file",
       },
       null,
       2

@@ -2,22 +2,18 @@ const AWS = require('aws-sdk')
 const s3 = new AWS.S3()
 
 module.exports.handler = async (event) => {
-  const { bucketName, fileName } = event.pathParameters
-
   const params = {
-    Bucket: bucketName,
-    Key: fileName,
-    Body: event.body
+    Bucket: event.pathParameters.bucketName,
   }
 
-  const result = await s3.putObject(params).promise()
+  const result = await s3.listObjectsV2(params).promise()
 
   const successResponse = {
-      statusCode: 201,
+      statusCode: 200,
       body: JSON.stringify(
       {
-          message: "File created successfully",
-          newData: JSON.stringify(result)
+          message: "Files obtained successfully",
+          files: result.Contents
       },
       null,
       2
@@ -28,7 +24,7 @@ module.exports.handler = async (event) => {
       statusCode: 400,
       body: JSON.stringify(
       {
-          message: "There was an error creating the file",
+          message: "There was an error reading the bucket",
       },
       null,
       2

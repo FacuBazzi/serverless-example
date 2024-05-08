@@ -49,12 +49,24 @@ functions:
       - httpApi:
           path: /s3
           method: get
+  s3-listFiles:
+    handler: src/s3/listFiles.handler
+    events:
+      - httpApi:
+          path: /s3/{bucketName}
+          method: get
   s3-createBucket:
     handler: src/s3/createBucket.handler
     events:
       - httpApi:
           path: /s3/{bucketName}
           method: post
+  s3-readFile:
+    handler: src/s3/readFile.handler
+    events:
+      - httpApi:
+          path: /s3/{bucketName}/{fileName}
+          method: get
   s3-createFile:
     handler: src/s3/createFile.handler
     events:
