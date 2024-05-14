@@ -10,7 +10,7 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
-# AWS Lambda Challenge - Facundo Bazzi
+# AWS Lambda Challenge - Facundo.Bazzi
 
 A- Create a serverless project and expose an endpoint with mock (static data or this can be placed in a json file).
 
